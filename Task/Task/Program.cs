@@ -1,11 +1,19 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using MyTask;
+using MyTask.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+var databaseName = builder.Configuration.GetConnectionString("NumberDatabaseName");
+
+builder.Services.AddDbContext<ApiContext>(options => 
+    options.UseInMemoryDatabase(databaseName));
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
