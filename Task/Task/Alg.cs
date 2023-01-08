@@ -6,20 +6,19 @@ public class Alg
     {
         var result = true;
 
-        if (number > 1)
+        if (number <= 1)
+            result = false;
+
+        else
         {
-            for (var i = 2u; i < number; i++)
+            for (var i = 2u; i <= Math.Sqrt(number); i++)
             {
                 if (number % i == 0)
                 {
                     result = false;
-                    break;
+                    return result;
                 }
             }
-        }
-        else
-        {
-            result = false;
         }
 
         return result;

@@ -1,14 +1,10 @@
+using FluentAssertions;
 using MyTask;
 
 namespace TestProject
 {
     public class Tests
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
         [Test]
         [TestCase(3)]
         [TestCase(5)]
@@ -17,7 +13,7 @@ namespace TestProject
         {
             var actual = Alg.IsPrime(number);
 
-            Assert.That(actual, Is.True);
+            actual.Should().BeTrue();
         }
 
         [Test]
@@ -29,7 +25,7 @@ namespace TestProject
         {
             var actual = Alg.IsPrime(number);
 
-            Assert.That(actual, Is.False);
+            actual.Should().BeFalse();
         }
     }
 }
