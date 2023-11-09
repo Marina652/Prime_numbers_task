@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MyTask;
+namespace MyTask.Models;
 
 public class NumberModel
 {
